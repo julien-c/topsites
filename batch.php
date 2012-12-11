@@ -9,4 +9,6 @@ for ($i = 0; $i < 300; $i++) {
 	$start = $i * 100 + 1;
 	$topSites = new TopSites($accessKeyId, $secretAccessKey, 'FR', $start);
 	$topSites->getTopSites();
+	
+	sleep(2);
 }
