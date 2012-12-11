@@ -69,7 +69,6 @@ class TopSites {
      * @return String   Result of request
      */
     protected static function makeRequest($url) {
-        print_r("Making request to: \n$url\n");
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_TIMEOUT, 4);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -85,7 +84,6 @@ class TopSites {
      * @param String $response    xml response from ATS
      */
     protected static function parseResponse($response) {
-        echo "\nSites: \n";
         $xml = new SimpleXMLElement($response,null, false, 
                                     'http://ats.amazonaws.com/doc/2005-11-21');
         foreach($xml->Response->TopSitesResult->Alexa->TopSites->Country->Sites->children('http://ats.amazonaws.com/doc/2005-11-21') as $site) {
@@ -101,7 +99,6 @@ class TopSites {
      */
     protected function generateSignature($queryParams) {
         $sign = "GET\n" . strtolower(self::$ServiceHost) . "\n/\n". $queryParams;
-        echo "String to sign: \n" . $sign . "\n\n";
         $sig = base64_encode(hash_hmac('sha256', $sign, $this->secretAccessKey, true));
         return rawurlencode($sig);
     }
