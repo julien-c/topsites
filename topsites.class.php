@@ -27,8 +27,8 @@ class TopSites {
         $url = 'http://' . self::$ServiceHost . '/?' . $queryParams . 
             '&Signature=' . $sig;
         $ret = self::makeRequest($url);
-        // self::parseResponse($ret);
-        echo $ret;
+        self::parseResponse($ret);
+        // echo $ret;
     }
 
     /**
@@ -88,8 +88,16 @@ class TopSites {
         $xml = new SimpleXMLElement($response,null, false, 
                                     'http://ats.amazonaws.com/doc/2005-11-21');
         foreach($xml->Response->TopSitesResult->Alexa->TopSites->Country->Sites->children('http://ats.amazonaws.com/doc/2005-11-21') as $site) {
-            echo $site->DataUrl . "\n"; 
-        } 
+            $out = array(
+                $site->Country->Rank,
+                $site->DataUrl,
+                $site->Country->Reach->PerMillion,
+                $site->Country->PageViews->PerMillion,
+                $site->Country->PageViews->PerUser
+            );
+            echo implode(',', $out);
+            echo "\n";
+        }
     }
 
     /**
