@@ -27,7 +27,8 @@ class TopSites {
         $url = 'http://' . self::$ServiceHost . '/?' . $queryParams . 
             '&Signature=' . $sig;
         $ret = self::makeRequest($url);
-        self::parseResponse($ret);
+        // self::parseResponse($ret);
+        echo $ret;
     }
 
     /**
