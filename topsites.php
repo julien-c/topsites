@@ -7,15 +7,15 @@ class TopSites {
     protected static $ActionName        = 'TopSites';
     protected static $ResponseGroupName = 'Country';
     protected static $ServiceHost      = 'ats.amazonaws.com';
-    protected static $NumReturn         = 10;
-    protected static $StartNum          = 1;
+    protected static $NumReturn         = 100;
     protected static $SigVersion        = '2';
     protected static $HashAlgorithm     = 'HmacSHA256';   
 
-    public function TopSites($accessKeyId, $secretAccessKey, $countryCode) {
+    public function TopSites($accessKeyId, $secretAccessKey, $countryCode, $startNum) {
         $this->accessKeyId = $accessKeyId;
         $this->secretAccessKey = $secretAccessKey;
         $this->countryCode = $countryCode;
+        $this->startNum = $startNum;
     }
 
     /**
@@ -50,7 +50,7 @@ class TopSites {
             'Timestamp'         => self::getTimestamp(),
             'CountryCode'       => $this->countryCode,
             'Count'             => self::$NumReturn,
-            'Start'             => self::$StartNum,
+            'Start'             => $this->startNum,
             'SignatureVersion'  => self::$SigVersion,
             'SignatureMethod'   => self::$HashAlgorithm
         );
@@ -115,9 +115,9 @@ if (count($argv) < 3) {
 else {
     $accessKeyId = $argv[1];
     $secretAccessKey = $argv[2];
-    $countryCode = count($argv) > 3 ? $argv[3] : "";
+    $start = count($argv) > 3 ? $argv[3] : 1;
 }
 
-$topSites = new TopSites($accessKeyId, $secretAccessKey, $countryCode);
+$topSites = new TopSites($accessKeyId, $secretAccessKey, 'FR', $start);
 $topSites->getTopSites();
-?>
+
