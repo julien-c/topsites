@@ -27,8 +27,8 @@ class UrlInfo {
         $url = 'http://' . self::$ServiceHost . '/?' . $queryParams . 
             '&Signature=' . $sig;
         $ret = self::makeRequest($url);
-        echo "\nResults for " . $this->site .":\n\n";
-        self::parseResponse($ret);
+        // self::parseResponse($ret);
+        echo $ret;
     }
 
     /**
@@ -70,7 +70,6 @@ class UrlInfo {
      * @return String       Result of request
      */
     protected static function makeRequest($url) {
-        echo "\nMaking request to:\n$url\n";
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_TIMEOUT, 4);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -113,9 +112,7 @@ class UrlInfo {
      */
     protected function generateSignature($url) {
         $sign = "GET\n" . strtolower(self::$ServiceHost) . "\n/\n". $url;
-        echo "String to sign: \n" . $sign . "\n";
         $sig = base64_encode(hash_hmac('sha256', $sign, $this->secretAccessKey, true));
-        echo "\nSignature: " . $sig ."\n";
         return rawurlencode($sig);
     }
 
