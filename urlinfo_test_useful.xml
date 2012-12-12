@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<aws:UrlInfoResponse xmlns:aws="http://alexa.amazonaws.com/doc/2005-10-05/"><aws:Response xmlns:aws="http://awis.amazonaws.com/doc/2005-07-11"><aws:OperationRequest><aws:RequestId>3c4f34ba-e070-f476-bfc5-3915d648b464</aws:RequestId></aws:OperationRequest><aws:UrlInfoResult><aws:Alexa>
+  
+  <aws:ContactInfo>
+    <aws:DataUrl type="canonical">leboncoin.fr/</aws:DataUrl>
+    <aws:PhoneNumbers>
+      <aws:PhoneNumber>Unlisted</aws:PhoneNumber>
+    </aws:PhoneNumbers>
+    <aws:OwnerName>Editions Aixoises Multimédia</aws:OwnerName>
+    <aws:Email>Unlisted</aws:Email>
+    <aws:PhysicalAddress/>
+    <aws:CompanyStockTicker/>
+  </aws:ContactInfo>
+  <aws:ContentData>
+    <aws:DataUrl type="canonical">leboncoin.fr/</aws:DataUrl>
+    <aws:SiteData>
+      <aws:Title>leboncoin.fr</aws:Title>
+      <aws:Description>site de petites annonces gratuit et sans commission (produits d’occasion, annonces immobilières, voitures d’occasion, offres d’emploi, services de proximité, locations de vacances, animaux, …).</aws:Description>
+    </aws:SiteData>
+    <aws:Speed>
+      <aws:MedianLoadTime>1076</aws:MedianLoadTime>
+      <aws:Percentile>67</aws:Percentile>
+    </aws:Speed>
+    <aws:AdultContent>no</aws:AdultContent>
+    <aws:Language/>
+    <aws:LinksInCount>5708</aws:LinksInCount>
+    <aws:Keywords/>
+    <aws:OwnedDomains/>
+  </aws:ContentData>
+  <aws:Related>
+    <aws:DataUrl type="canonical">leboncoin.fr/</aws:DataUrl>
+    <aws:RelatedLinks>
+      <aws:RelatedLink>
+        <aws:DataUrl type="canonical">voila.fr/</aws:DataUrl>
+        <aws:NavigableUrl>http://voila.fr/</aws:NavigableUrl>
+        <aws:Title>Voila</aws:Title>
+      </aws:RelatedLink>
+      <aws:RelatedLink>
+        <aws:DataUrl type="canonical">vivastreet.fr/</aws:DataUrl>
+        <aws:NavigableUrl>http://vivastreet.fr/</aws:NavigableUrl>
+        <aws:Title>Vivastreet</aws:Title>
+      </aws:RelatedLink>
+      <aws:RelatedLink>
+        <aws:DataUrl type="canonical">viamichelin.fr/</aws:DataUrl>
+        <aws:NavigableUrl>http://viamichelin.fr/</aws:NavigableUrl>
+        <aws:Title>ViaMichelin</aws:Title>
+      </aws:RelatedLink>
+      <aws:RelatedLink>
+        <aws:DataUrl type="canonical">sfr.fr/</aws:DataUrl>
+        <aws:NavigableUrl>http://sfr.fr/</aws:NavigableUrl>
+        <aws:Title>SFR</aws:Title>
+      </aws:RelatedLink>
+      <aws:RelatedLink>
+        <aws:DataUrl type="canonical">paruvendu.fr/</aws:DataUrl>
+        <aws:NavigableUrl>http://paruvendu.fr/</aws:NavigableUrl>
+        <aws:Title>ParuVendu.fr</aws:Title>
+      </aws:RelatedLink>
+      <aws:RelatedLink>
+        <aws:DataUrl type="canonical">pagesjaunes.fr/</aws:DataUrl>
+        <aws:NavigableUrl>http://pagesjaunes.fr/</aws:NavigableUrl>
+        <aws:Title>France Telecom : les pages jaunes</aws:Title>
+      </aws:RelatedLink>
+      <aws:RelatedLink>
+        <aws:DataUrl type="canonical">orange.fr/</aws:DataUrl>
+        <aws:NavigableUrl>http://orange.fr/</aws:NavigableUrl>
+        <aws:Title>Orange</aws:Title>
+      </aws:RelatedLink>
+      <aws:RelatedLink>
+        <aws:DataUrl type="canonical">mappy.com/</aws:DataUrl>
+        <aws:NavigableUrl>http://mappy.com/</aws:NavigableUrl>
+        <aws:Title>Mappy</aws:Title>
+      </aws:RelatedLink>
+      <aws:RelatedLink>
+        <aws:DataUrl type="canonical">lo.st/</aws:DataUrl>
+        <aws:NavigableUrl>http://lo.st/</aws:NavigableUrl>
+        <aws:Title>Moteur de recherche lo.st : Infos, Photos, Videos</aws:Title>
+      </aws:RelatedLink>
+      <aws:RelatedLink>
+        <aws:DataUrl type="canonical">laposte.net/</aws:DataUrl>
+        <aws:NavigableUrl>http://laposte.net/</aws:NavigableUrl>
+        <aws:Title>LaPoste.net</aws:Title>
+      </aws:RelatedLink>
+    </aws:RelatedLinks>
+    <aws:Categories>
+      <aws:CategoryData>
+        <aws:Title>Produits et services de consommation/Petites annonces</aws:Title>
+        <aws:AbsolutePath>Top/World/Français/Régional/Europe/France/Commerce_et_économie/Produits_et_services_de_consommation/Petites_annonces</aws:AbsolutePath>
+      </aws:CategoryData>
+    </aws:Categories>
+  </aws:Related>
+</aws:Alexa></aws:UrlInfoResult><aws:ResponseStatus xmlns:aws="http://alexa.amazonaws.com/doc/2005-10-05/"><aws:StatusCode>Success</aws:StatusCode></aws:ResponseStatus></aws:Response></aws:UrlInfoResponse>
