@@ -27,7 +27,7 @@ class UrlInfo {
         $url = 'http://' . self::$ServiceHost . '/?' . $queryParams . 
             '&Signature=' . $sig;
         $ret = self::makeRequest($url);
-        self::parseResponse($ret);
+        return self::parseResponse($ret);
     }
 
     /**
@@ -87,9 +87,7 @@ class UrlInfo {
         if($xml->count() && $xml->Response->UrlInfoResult->Alexa->count()) {
             $info = $xml->Response->UrlInfoResult->Alexa;
             
-            $m = new Mongo();
-            $m->topsites->awis->insert($info);
-            
+            return $info;
         }
     }
 
@@ -106,17 +104,27 @@ class UrlInfo {
 
 }
 
-if (count($argv) < 4) {
-    echo "Usage: $argv[0] ACCESS_KEY_ID SECRET_ACCESS_KEY site\n";
-    exit(-1);
-}
-else {
-    $accessKeyId = $argv[1];
-    $secretAccessKey = $argv[2];
-    $site = $argv[3];
+
+$accessKeyId = $argv[1];
+$secretAccessKey = $argv[2];
+
+$m = new Mongo();
+
+$handle = fopen("top30000_FR.csv", "r");
+while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+    list($rank, $site, $reachpermillion, $pageviewspermillion, $pageviewsperuser) = $data;
+    echo $rank . ' ' . $site . "\n";
+    
+    $urlInfo = new UrlInfo($accessKeyId, $secretAccessKey, $site);
+    $info = (array) $urlInfo->getUrlInfo();
+    $info['rank'] = (int) $rank;
+    $info['reachpermillion'] = (int) $reachpermillion;
+    $info['pageviewspermillion'] = (int) $pageviewspermillion;
+    $info['pageviewsperuser'] = (float) $pageviewsperuser;
+    
+    $m->topsites->awis->insert($info);
+    
+    sleep(2);
 }
 
-$urlInfo = new UrlInfo($accessKeyId, $secretAccessKey, $site);
-$urlInfo->getUrlInfo();
 
-?>
