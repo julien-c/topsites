@@ -5,7 +5,7 @@
 class UrlInfo {
 
     protected static $ActionName        = 'UrlInfo';
-    protected static $ResponseGroupName = 'Rank,ContactInfo,LinksInCount';
+    protected static $ResponseGroupName = 'RelatedLinks,Categories,Rank,RankByCountry,RankByCity,UsageStats,ContactInfo,AdultContent,Speed,Language,Keywords,OwnedDomains,LinksInCount,SiteData';
     protected static $ServiceHost      = 'awis.amazonaws.com';
     protected static $NumReturn         = 10;
     protected static $StartNum          = 1;
