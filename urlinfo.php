@@ -27,8 +27,7 @@ class UrlInfo {
         $url = 'http://' . self::$ServiceHost . '/?' . $queryParams . 
             '&Signature=' . $sig;
         $ret = self::makeRequest($url);
-        // self::parseResponse($ret);
-        echo $ret;
+        self::parseResponse($ret);
     }
 
     /**
@@ -87,21 +86,10 @@ class UrlInfo {
                                     'http://awis.amazonaws.com/doc/2005-07-11');
         if($xml->count() && $xml->Response->UrlInfoResult->Alexa->count()) {
             $info = $xml->Response->UrlInfoResult->Alexa;
-            $nice_array = array(
-                'Phone Number'   => $info->ContactInfo->PhoneNumbers->PhoneNumber,
-                'Owner Name'     => $info->ContactInfo->OwnerName,
-                'Email'          => $info->ContactInfo->Email,
-                'Street'         => $info->ContactInfo->PhysicalAddress->Streets->Street,
-                'City'           => $info->ContactInfo->PhysicalAddress->City,
-                'State'          => $info->ContactInfo->PhysicalAddress->State,
-                'Postal Code'    => $info->ContactInfo->PhysicalAddress->PostalCode,
-                'Country'        => $info->ContactInfo->PhysicalAddress->Country,
-                'Links In Count' => $info->ContentData->LinksInCount,
-                'Rank'           => $info->TrafficData->Rank
-            );
-        }
-        foreach($nice_array as $k => $v) {
-            echo $k . ': ' . $v ."\n";
+            
+            $m = new Mongo();
+            $m->topsites->awis->insert($info);
+            
         }
     }
 
