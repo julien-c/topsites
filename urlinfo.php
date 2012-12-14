@@ -82,13 +82,19 @@ class UrlInfo {
      * @param String $response    xml response from AWIS
      */
     public static function parseResponse($response) {
-        $xml = new SimpleXMLElement($response,null,false,
-                                    'http://awis.amazonaws.com/doc/2005-07-11');
-        if($xml->count() && $xml->Response->UrlInfoResult->Alexa->count()) {
-            $info = $xml->Response->UrlInfoResult->Alexa;
-            
-            return $info;
+        try {
+            $xml = new SimpleXMLElement($response, null, false, 'http://awis.amazonaws.com/doc/2005-07-11');
+            if ($xml->count() && $xml->Response->UrlInfoResult->Alexa->count()) {
+                $info = $xml->Response->UrlInfoResult->Alexa;
+                return $info;
+            }
         }
+        catch (Exception $e) {
+            
+            echo 'Exception: ' . $response;
+            exit;
+        }
+        
     }
 
     /**
